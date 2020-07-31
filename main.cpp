@@ -1,24 +1,20 @@
+//Tayler of exp
+
+
 #include <iostream>
 using namespace std;
-int ipow(int base, int exp)
-{
-    int result = 1;
-    for (;;)
-    {
-        if (exp & 1)
-            result *= base;
-        exp >>= 1;
-        if (!exp)
-            break;
-        base *= base;
-    }
-
-    return result;
-}
-int main() {
 
 
+double exp(int x, int n){
+  static double s=1;
+  if(n==0)
+    return s;
+  s=1+x*s/n;
+  return exp(x,n-1);
+};
 
-  printf("%d",65>>1);
+
+int main(){
+  printf("%.10lf \n",exp(1,15));
   return 0;
 }
